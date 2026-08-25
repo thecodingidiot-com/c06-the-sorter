@@ -37,7 +37,7 @@ static void init_sprites(t_sprite *sprites)
     i = 0;
     while (i < SPRITE_COUNT)
     {
-        sprites[i].x = 40 + i * 90;
+        sprites[i].x = 40 + i * 50;
         sprites[i].depth = WINDOW_H / 2;
         sprites[i].phase = (float)i * 1.1f;
         sprites[i].color = colours[i];
@@ -117,7 +117,7 @@ int main(void)
             {
                 if (ev.key.keysym.sym == SDLK_ESCAPE)
                     running = 0;
-                if (ev.key.keysym.sym == SDLK_SPACE)
+                if (ev.key.keysym.sym == SDLK_SPACE && !ev.key.repeat)
                     sort_enabled = !sort_enabled;
             }
         }
