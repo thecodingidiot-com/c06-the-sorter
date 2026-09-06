@@ -18,15 +18,12 @@ void    bubble_sort(int *arr, size_t n, t_sort_stats *stats)
     if (n < 2)
         return;
     i = 0;
-    while (i < n - 1)
-    {
+    while (i < n - 1) {
         swapped = 0;
         j = 0;
-        while (j < n - 1 - i)
-        {
+        while (j < n - 1 - i) {
             stats->comparisons++;
-            if (arr[j] > arr[j + 1])
-            {
+            if (arr[j] > arr[j + 1]) {
                 swap_ints(&arr[j], &arr[j + 1]);
                 stats->swaps++;
                 swapped = 1;
@@ -48,12 +45,10 @@ void    insertion_sort(int *arr, size_t n, t_sort_stats *stats)
     if (n < 2)
         return;
     i = 1;
-    while (i < n)
-    {
+    while (i < n) {
         key = arr[i];
         j = i;
-        while (j > 0)
-        {
+        while (j > 0) {
             stats->comparisons++;
             if (arr[j - 1] <= key)
                 break;
@@ -76,11 +71,9 @@ static size_t   partition(int *arr, size_t low, size_t high,
     pivot = arr[high];
     i = low;
     j = low;
-    while (j < high)
-    {
+    while (j < high) {
         stats->comparisons++;
-        if (arr[j] < pivot)
-        {
+        if (arr[j] < pivot) {
             swap_ints(&arr[i], &arr[j]);
             stats->swaps++;
             i++;

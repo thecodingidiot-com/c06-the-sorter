@@ -12,8 +12,7 @@ int main(void)
 
     srand(1);
     size_idx = 0;
-    while (size_idx < 3)
-    {
+    while (size_idx < 3) {
         n = sizes[size_idx];
         seed = malloc(n * sizeof(int));
         if (!seed)
