@@ -30,8 +30,7 @@ void    fill_random(int *arr, size_t n)
     size_t  i;
 
     i = 0;
-    while (i < n)
-    {
+    while (i < n) {
         arr[i] = rand() % 100000;
         i++;
     }
@@ -42,8 +41,7 @@ void    fill_sorted(int *arr, size_t n)
     size_t  i;
 
     i = 0;
-    while (i < n)
-    {
+    while (i < n) {
         arr[i] = (int)i;
         i++;
     }
@@ -54,8 +52,7 @@ void    fill_reverse(int *arr, size_t n)
     size_t  i;
 
     i = 0;
-    while (i < n)
-    {
+    while (i < n) {
         arr[i] = (int)(n - i);
         i++;
     }
@@ -74,8 +71,7 @@ void    fill_nearly_sorted(int *arr, size_t n)
     if (swap_count < 1)
         swap_count = 1;
     i = 0;
-    while (i < swap_count)
-    {
+    while (i < swap_count) {
         a = (size_t)rand() % n;
         b = (size_t)rand() % n;
         tmp = arr[a];
@@ -108,8 +104,7 @@ void    bench_one(char const *sort_name, t_sort_fn sort,
     if (!arr)
         return;
     i = 0;
-    while (i < n)
-    {
+    while (i < n) {
         arr[i] = seed[i];
         i++;
     }

@@ -35,8 +35,7 @@ static void init_sprites(t_sprite *sprites)
     int i;
 
     i = 0;
-    while (i < SPRITE_COUNT)
-    {
+    while (i < SPRITE_COUNT) {
         sprites[i].x = 40 + i * 50;
         sprites[i].depth = WINDOW_H / 2;
         sprites[i].phase = (float)i * 1.1f;
@@ -53,8 +52,7 @@ static void update_sprites(t_sprite *sprites, Uint32 ticks)
 
     t = (float)ticks / 1000.0f;
     i = 0;
-    while (i < SPRITE_COUNT)
-    {
+    while (i < SPRITE_COUNT) {
         wave = sinf(t * 1.3f + sprites[i].phase);
         sprites[i].depth = (int)((float)(WINDOW_H / 2) + wave * 150.0f);
         i++;
@@ -73,8 +71,7 @@ static void render_sprites(SDL_Renderer *ren, t_sprite *sprites,
     SDL_SetRenderDrawColor(ren, 20, 20, 30, 255);
     SDL_RenderClear(ren);
     i = 0;
-    while (i < SPRITE_COUNT)
-    {
+    while (i < SPRITE_COUNT) {
         rect.x = sprites[i].x;
         rect.y = sprites[i].depth;
         rect.w = SPRITE_SIZE;
@@ -96,8 +93,7 @@ int main(void)
     int             running;
     int             sort_enabled;
 
-    if (SDL_Init(SDL_INIT_VIDEO) != 0)
-    {
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         SDL_Log("SDL_Init: %s", SDL_GetError());
         return (1);
     }
@@ -107,14 +103,11 @@ int main(void)
     init_sprites(sprites);
     running = 1;
     sort_enabled = 1;
-    while (running)
-    {
-        while (SDL_PollEvent(&ev))
-        {
+    while (running) {
+        while (SDL_PollEvent(&ev)) {
             if (ev.type == SDL_QUIT)
                 running = 0;
-            if (ev.type == SDL_KEYDOWN)
-            {
+            if (ev.type == SDL_KEYDOWN) {
                 if (ev.key.keysym.sym == SDLK_ESCAPE)
                     running = 0;
                 if (ev.key.keysym.sym == SDLK_SPACE && !ev.key.repeat)
